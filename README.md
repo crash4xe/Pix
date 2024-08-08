@@ -68,3 +68,59 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## React Router
+
+In traditional web application routing or navigation between pages is acheived using hyperlinks. We can use the same but it will contradict our Single Page Application principles by requesting new page from server on every hyperlink click.
+
+We can navigate using state and conditional rendering but it gets too complicated to get full fledged navigation behaviour. Hence we can use a very famous react routing library called "React Router". For web applications we can include **react-router-dom** package and for native applications **react-router-native** package.
+
+React Router enables "**client side routing**" which means on link click it allows our app to udpate the URL without making another request to server. Then depending on the URL we can display different components. This makes user experience and react application faster as the browser doesn't have to fetch new page, process CSS and JS and then display it.
+
+#### Implementation
+
+1.  Install the package in our project
+
+        npm install react-router-dom
+
+2.  import all the required components like BrowserRouter, Link, Routes, Route
+
+        import {BrowserRouter, Link, Routes, Route} from 'react-router-dom'
+
+    - BrowserRouter: stores the current location in the browser's address bar using clean URLs and navigates using the browser's built-in history stack. We need to wrap our main app component with BrowserRouter to keep track of all the URLs.
+
+    - Link: Link element is very similar to anchor element we can say. This allows our app to update the URL on click.
+
+    - Routes: This element is used to wrap all the Route elements.
+
+    - Route: This element is responsible for rendering UI for respective URL.
+
+## Redux
+
+Redux is state manangment libaray. The main plus point redux is it's **predictibility** which acheived through:
+
+    - store: single source of truth
+    - state is read only: Component can't directly change state like component state
+    - reducer function: functin responsible for changing state. it takes two parameter current state and action and returns new state.
+    - action: action is an object emitted by component through some event and reducer take this action to udpate state.
+    - action creators: function that returns an action object is called as action creators
+
+Redux resolved **props drilling**. By using **react-redux** package
+
+#### Implementation
+
+1.  Install the redux package
+
+        npm i redux
+
+2.  Import createStore from redux
+
+        import {createStore} from 'redux'
+
+3.  create store using createStore() where we want to put our store(index.js). It takes one mandatory paramenter a reducer function.
+
+        const store = createStore(reducerFn);
+
+4.  create reducer function:
+
+        const reducerFn = (state, action) => {return state;}
