@@ -7,7 +7,7 @@ class Comments extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.addComment(e.target.comment.value, this.props.id);
+    this.props.startAddingComment(e.target.comment.value, this.props.id);
     e.target.comment.value = "";
   }
   render() {

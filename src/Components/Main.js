@@ -5,11 +5,19 @@ import { Link, Route, Routes } from "react-router-dom";
 import Post from "./Post";
 
 class Main extends Component {
+  state = { loading: true };
+  componentDidMount() {
+    this.props.startLoadingPosts().then(() => {
+      this.setState({ loading: false });
+    });
+    this.props.startLoadingComments();
+  }
+
   render() {
     return (
       <>
         <h1>
-          <Link to="/">Photowall</Link>
+          <Link to="/">Pix</Link>
         </h1>
         <Routes>
           <Route
@@ -21,7 +29,10 @@ class Main extends Component {
             }
           />
           <Route path="/addPhoto" element={<AddPhoto {...this.props} />} />
-          <Route path="/post/:id" element={<Post {...this.props} />} />
+          <Route
+            path="/post/:id"
+            element={<Post loading={this.state.loading} {...this.props} />}
+          />
         </Routes>
       </>
     );

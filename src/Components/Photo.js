@@ -19,7 +19,7 @@ class Photo extends Component {
         <div className="button-container">
           <button
             onClick={() => {
-              this.props.removePost(this.props.post.id);
+              this.props.startRemovingPost(this.props.post.id);
               this.props.navigate && this.props.navigate("/");
             }}
           >

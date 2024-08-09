@@ -8,16 +8,24 @@ function Post(props) {
   const navigate = useNavigate();
   const id = Number(params.id);
   const post = props.posts.find((post) => post.id === id);
-  return (
-    <div className="post">
-      <Photo post={post} {...props} navigate={navigate} />
-      <Comments
-        addComment={props.addComment}
-        comments={props.comments[id] || []}
-        id={id}
-      />
-    </div>
-  );
+
+  if (props.loading === true) {
+    return <div className="loader">...loading</div>;
+  } else if (post) {
+    return (
+      <div className="post">
+        <Photo post={post} {...props} navigate={navigate} />
+        <Comments
+          startAddingComment={props.startAddingComment}
+          addComment={props.addComment}
+          comments={props.comments[id] || []}
+          id={id}
+        />
+      </div>
+    );
+  } else {
+    return <h1>___ no post found</h1>;
+  }
 }
 
 export default Post;
