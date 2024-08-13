@@ -17,11 +17,11 @@ class Main extends Component {
     return (
       <>
         <h1>
-          <Link to="/">Pix</Link>
+          <Link to="/Pix">Pix</Link>
         </h1>
         <Routes>
           <Route
-            path="/"
+            path="/Pix"
             element={
               <>
                 <Photowall {...this.props} />

@@ -20,8 +20,8 @@ p {
 h1 {
   font-family: "Playwrite PT";
   text-align: center;
-  font-size: 13rem;
-  margin: 2rem 0;
+  font-size: 7rem;
+  margin: 1rem 0;
   color: black;
 }
 
@@ -88,7 +88,7 @@ button {
 .add-icon {
   margin: 20px auto;
   display: table;
-  padding: 40px;
+  padding: 25px;
   background: url(/public/add512.png) center no-repeat;
   background-size: contain;
   border: none;

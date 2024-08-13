@@ -6,7 +6,7 @@ const withRouter = (Component) => {
     let navigate = useNavigate();
     return <Component {...props} params={params} navigate={navigate} />;
   }
-  return <WrappedComponent />;
+  return WrappedComponent;
 };
 
 export default withRouter;

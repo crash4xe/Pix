@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import withRouter from "./withRouter";
+
 class AddPhoto extends Component {
   constructor() {
     super();
@@ -17,6 +19,7 @@ class AddPhoto extends Component {
     };
     if (link && description) {
       this.props.startAddingPost(post);
+      this.props.navigate("/Pix");
     }
   }
 
@@ -35,4 +38,4 @@ class AddPhoto extends Component {
   }
 }
 
-export default AddPhoto;
+export default withRouter(AddPhoto);
